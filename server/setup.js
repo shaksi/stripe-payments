@@ -24,50 +24,6 @@ module.exports = {
         // Create a few products and SKUs assuming they don't already exist.
         try {
 
-          // Increment Magazine.
-          const heets = await stripe.products.create({
-            id: 'heets',
-            type: 'good',
-            name: 'HEETS',
-            attributes: ['taste'],
-          });
-          //amber
-          await stripe.skus.create({
-            id: 'heets-amber',
-            product: 'heets',
-            attributes: {taste: 'Amber'},
-            price: 3750,
-            currency: config.currency,
-            inventory: {type: 'infinite'},
-          });
-          //turquoise
-          await stripe.skus.create({
-            id: 'heets-turquoise',
-            product: 'heets',
-            attributes: {taste: 'Turquoise'},
-            price: 3750,
-            currency: config.currency,
-            inventory: {type: 'infinite'},
-          });
-          //yellow
-          await stripe.skus.create({
-            id: 'heets-yellow',
-            product: 'heets',
-            attributes: {taste: 'Yellow'},
-            price: 3750,
-            currency: config.currency,
-            inventory: {type: 'infinite'},
-          });
-          //mixed
-          await stripe.skus.create({
-            id: 'heets-mixed',
-            product: 'heets',
-            attributes: {taste: 'Mixed'},
-            price: 3750,
-            currency: config.currency,
-            inventory: {type: 'infinite'},
-          });
-
           // Device
           const iqos = await stripe.products.create({
             id: 'iqos',
