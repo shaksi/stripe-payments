@@ -422,6 +422,7 @@
         break;
 
       case 'paid':
+      case 'captured':
         // Success! Payment is confirmed. Update the interface to display the confirmation screen.
         mainElement.classList.remove('processing');
         mainElement.classList.remove('receiver');

@@ -65,18 +65,30 @@ router.post('/orders/:id/pay', async (req, res, next) => {
     }
     // Demo: In test mode, replace the source with a test token so charges can work.
     if (!source.livemode) {
-      source.id = 'tok_visa';
+      // source.id = 'tok_visa';
     }
     // Pay the order using the Stripe source.
     if (source && source.status === 'chargeable') {
       let charge, status;
       try {
+
+       const customer =  await stripe.customers.create({
+          email: order.email,
+          source: source.id,
+          shipping:{
+            name:order.shipping.name,
+            phone:order.shipping.phone,
+            address:order.shipping.address,
+            },
+        });
         charge = await stripe.charges.create(
           {
+            customer: customer.id,
             source: source.id,
             amount: order.amount,
             currency: order.currency,
             receipt_email: order.email,
+            capture:false,
           },
           {
             // Set a unique idempotency key based on the order ID.
@@ -85,12 +97,13 @@ router.post('/orders/:id/pay', async (req, res, next) => {
           }
         );
       } catch (err) {
+        // console.log(err);
         // This is where you handle declines and errors.
         // For the demo we simply set to failed.
         status = 'failed';
       }
       if (charge && charge.status === 'succeeded') {
-        status = 'paid';
+        status = 'captured';
       } else if (charge) {
         status = charge.status;
       } else {
