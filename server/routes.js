@@ -48,6 +48,7 @@ router.post('/orders', async (req, res, next) => {
 // Complete payment for an order using a source.
 router.post('/orders/:id/pay', async (req, res, next) => {
   let {source} = req.body;
+  console.log(req.body);
   try {
     // Retrieve the order associated to the ID.
     let order = await orders.retrieve(req.params.id);
@@ -71,12 +72,20 @@ router.post('/orders/:id/pay', async (req, res, next) => {
     if (source && source.status === 'chargeable') {
       let charge, status;
       try {
+        customer =  await stripe.customers.create({ description: 'Customer for zoey.smith@example.com',
+        source: source.id,
+      }, function(err, customer) {
+        // asynchronously called
+        console.log("CREATED":,customer);
+      });
+
         charge = await stripe.charges.create(
           {
             source: source.id,
             amount: order.amount,
             currency: order.currency,
             receipt_email: order.email,
+            captured: false,
           },
           {
             // Set a unique idempotency key based on the order ID.

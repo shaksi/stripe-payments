@@ -176,11 +176,12 @@
       const zipLabel = form.querySelector('label.zip');
       // Only show the state input for the United States.
       zipLabel.parentElement.classList.toggle('with-state', country === 'US');
+      console.log(country);
       // Update the ZIP label to make it more relevant for each country.
       form.querySelector('label.zip span').innerText =
         country === 'US'
           ? 'ZIP'
-          : country === 'UK'
+          : country === 'GB'
             ? 'Postcode'
             : 'Postal Code';
       event.target.parentElement.className = `field ${country}`;
@@ -485,6 +486,10 @@
   // List of relevant countries for the payment methods supported in this demo.
   // Read the Stripe guide: https://stripe.com/payments/payment-methods-guide
   const paymentMethods = {
+    card: {
+      name: 'Card',
+      flow: 'none',
+    },
     ach_credit_transfer: {
       name: 'Bank Transfer',
       flow: 'receiver',
@@ -500,10 +505,7 @@
       flow: 'redirect',
       countries: ['BE'],
     },
-    card: {
-      name: 'Card',
-      flow: 'none',
-    },
+
     eps: {
       name: 'EPS',
       flow: 'redirect',
@@ -620,6 +622,7 @@
 
   // Select the default country from the config on page load.
   const countrySelector = document.getElementById('country');
+  console.log(countrySelector);
   countrySelector.querySelector(`option[value=${config.country}]`).selected =
     'selected';
   countrySelector.className = `field ${config.country}`;

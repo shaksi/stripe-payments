@@ -22,7 +22,7 @@
         <p class="instruction">Complete your shipping and payment details below</p>
         <section>
           <h2>Shipping &amp; Billing Information</h2>
-          <fieldset class="with-state">
+          <fieldset class="">
             <label>
               <span>Name</span>
               <input name="name" class="field" placeholder="Jenny Rosen" required>
@@ -32,51 +32,30 @@
               <input name="email" type="email" class="field" placeholder="jenny@example.com" required>
             </label>
             <label>
+              <span>Mobile</span>
+              <input name="mobile" type="field" class="field" placeholder="079000000000000" required>
+            </label>
+            <label>
               <span>Address</span>
-              <input name="address" class="field" placeholder="185 Berry Street Suite 550">
+              <input name="address" class="field" placeholder="Flat 1, 22 london road" required>
             </label>
             <label>
               <span>City</span>
-              <input name="city" class="field" placeholder="San Francisco">
+              <input name="city" class="field" placeholder="London" required>
             </label>
             <label class="state">
               <span>State</span>
-              <input name="state" class="field" placeholder="CA">
+              <input name="state" class="field" placeholder="CA" required>
             </label>
             <label class="zip">
-              <span>ZIP</span>
-              <input name="postal_code" class="field" placeholder="94107">
+              <span>Postcode</span>
+              <input name="postal_code" class="field" placeholder="NW1 1NW" required>
             </label>
             <label class="select">
               <span>Country</span>
-              <div id="country" class="field US">
+              <div id="country" class="field GB">
                 <select name="country">
-                  <option value="AU">Australia</option>
-                  <option value="AT">Austria</option>
-                  <option value="BE">Belgium</option>
-                  <option value="BR">Brazil</option>
-                  <option value="CA">Canada</option>
-                  <option value="CN">China</option>
-                  <option value="DK">Denmark</option>
-                  <option value="FI">Finland</option>
-                  <option value="FR">France</option>
-                  <option value="DE">Germany</option>
-                  <option value="HK">Hong Kong</option>
-                  <option value="IE">Ireland</option>
-                  <option value="IT">Italy</option>
-                  <option value="JP">Japan</option>
-                  <option value="LU">Luxembourg</option>
-                  <option value="MX">Mexico</option>
-                  <option value="NL">Netherlands</option>
-                  <option value="NZ">New Zealand</option>
-                  <option value="NO">Norway</option>
-                  <option value="PT">Portugal</option>
-                  <option value="SG">Singapore</option>
-                  <option value="ES">Spain</option>
-                  <option value="SE">Sweden</option>
-                  <option value="CH">Switzerland</option>
-                  <option value="GB">United Kingdom</option>
-                  <option value="US" selected="selected">United States</option>
+                  <option value="GB"selected="selected">United Kingdom</option>
                 </select>
               </div>
             </label>
@@ -92,7 +71,7 @@
                 <label for="payment-card">Card</label>
               </li>
               <li>
-                <input type="radio" name="payment" id="payment-ach_credit_transfer" value="ach_credit_transfer" checked>
+                <input type="radio" name="payment" id="payment-ach_credit_transfer" value="ach_credit_transfer">
                 <label for="payment-ach_credit_transfer">Bank Transfer</label>
               </li>
               <li>
