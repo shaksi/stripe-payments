@@ -118,6 +118,7 @@
         event.payerEmail,
         {
           name: event.shippingAddress.recipient,
+          phone: event.shippingAddress.phone,
           address: {
             line1: event.shippingAddress.addressLine[0],
             city: event.shippingAddress.city,
@@ -194,11 +195,13 @@
     // Retrieve the user information from the form.
     const payment = form.querySelector('input[name=payment]:checked').value;
     const name = form.querySelector('input[name=name]').value;
+    const phone = form.querySelector('input[name=phone]').value;
     const country = form.querySelector('select[name=country] option:checked')
       .value;
     const email = form.querySelector('input[name=email]').value;
     const shipping = {
       name,
+      phone,
       address: {
         line1: form.querySelector('input[name=address]').value,
         city: form.querySelector('input[name=city]').value,
