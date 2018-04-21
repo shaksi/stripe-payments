@@ -24,13 +24,31 @@ module.exports = {
         // Create a few products and SKUs assuming they don't already exist.
         try {
 
-          // Device
-          const iqos = await stripe.products.create({
+
+          //create heets with mixed sku
+          const heets = await stripe.products.create({
+            id: 'heets',
+            type: 'good',
+            name: 'HEETS',
+            attributes: ["type"],
+          });
+          await stripe.skus.create({
+            id: 'heets-mix',
+            product: 'heets',
+            attributes: {type: '3 packs of HEETS (Amber, Turquoise, Yellow) Each pack contains 20 tobacco sticks'},
+            price: 2250,
+            currency: config.currency,
+            inventory: {type: 'infinite'},
+          });
+
+           // Device
+           const iqos = await stripe.products.create({
             id: 'iqos',
             type: 'good',
             name: 'IQOS device',
             attributes: ["colour"],
           });
+
           await stripe.skus.create({
             id: 'iqos-white',
             product: 'iqos',
@@ -49,53 +67,6 @@ module.exports = {
             inventory: {type: 'infinite'},
           });
 
-          // Increment Magazine.
-          const increment = await stripe.products.create({
-            id: 'increment',
-            type: 'good',
-            name: 'Increment Magazine',
-            attributes: ['issue'],
-          });
-          await stripe.skus.create({
-            id: 'increment-03',
-            product: 'increment',
-            attributes: {issue: 'Issue #3 “Development”'},
-            price: 399,
-            currency: config.currency,
-            inventory: {type: 'infinite'},
-          });
-
-          // Stripe Shirt.
-          const shirt = await stripe.products.create({
-            id: 'shirt',
-            type: 'good',
-            name: 'Stripe Shirt',
-            attributes: ['size', 'gender'],
-          });
-          await stripe.skus.create({
-            id: 'shirt-small-woman',
-            product: 'shirt',
-            attributes: {size: 'Small Standard', gender: 'Woman'},
-            price: 999,
-            currency: config.currency,
-            inventory: {type: 'infinite'},
-          });
-
-          // Stripe Pins.
-          const pins = await stripe.products.create({
-            id: 'pins',
-            type: 'good',
-            name: 'Stripe Pins',
-            attributes: ['set'],
-          });
-          await stripe.skus.create({
-            id: 'pins-collector',
-            product: 'pins',
-            attributes: {set: 'Collector Set'},
-            price: 799,
-            currency: config.currency,
-            inventory: {type: 'finite', quantity: 500},
-          });
           console.log('Setup complete.');
           resolve();
           this.running = false;

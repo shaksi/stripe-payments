@@ -584,9 +584,9 @@
     // Check the first payment option again.
     paymentInputs[0].checked = 'checked';
     form.querySelector('.payment-info.card').classList.add('visible');
-    form.querySelector('.payment-info.sepa_debit').classList.remove('visible');
-    form.querySelector('.payment-info.wechat').classList.remove('visible');
-    form.querySelector('.payment-info.redirect').classList.remove('visible');
+    // form.querySelector('.payment-info.sepa_debit').classList.remove('visible');
+    // form.querySelector('.payment-info.wechat').classList.remove('visible');
+    // form.querySelector('.payment-info.redirect').classList.remove('visible');
     updateButtonLabel(paymentInputs[0].value);
   };
 

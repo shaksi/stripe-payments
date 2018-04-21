@@ -22,6 +22,8 @@ router.get('/', (req, res) => {
   res.render('index.html');
 });
 
+
+
 /**
  * Stripe integration to accept all types of payments with 3 POST endpoints:
  *

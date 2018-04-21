@@ -1,18 +1,18 @@
 <html>
 
 <head>
-  <title>Stripe Payments Demo</title>
+  <title>Try IQOS</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="/stylesheets/store.css">
-  <link rel="icon" type="image/png" sizes="104x80" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="104x80" href="/images/favicon.ico">
 </head>
 
 <body>
   <div id="main" class="loading">
     <header>
-      <a class="shop" href="/">IQOS Trial</a>
-
+      <a class="shop" href="/"></a>
+      <a class="shop" href="/">Home</a>
     </header>
     <div id="checkout">
       <div id="payment-request">
@@ -61,7 +61,7 @@
               </div>
             </label>
           </fieldset>
-          <p class="tip">Select another country to see different payment options.</p>
+          <!-- <p class="tip">Select another country to see different payment options.</p> -->
         </section>
         <section>
           <h2>Payment Information</h2>
@@ -81,6 +81,26 @@
               </label>
             </fieldset>
           </div>
+        </section>
+        <section>
+            <h2>Terms &amp; Conditions</h2>
+          <div class="legal">
+            <fieldset>
+              <label class="marketing">
+                <input id="marketing" type="checkbox" required>
+                <span>I am happy for you to contact me for for marketing and customer care purposes.</span>
+              </label>
+              <label class="legal">
+                <input id="legal" type="checkbox" required>
+                <span>I confirm that I have read, understood and accept the 
+                  <a href="https://www.iqos.co.uk/terms-and-conditions">Terms and Conditions</a> 
+                  and <a href="https://www.iqos.co.uk/privacy-policy">Privacy Policy</a>
+                </span>
+              </label>
+            </fieldset>
+          </div>
+          <p class="tip">By submitting this form you consent to be contacted by us about the 7 Day Trial.</p>
+        </section>
         <button type="submit">Pay</button>
       </form>
       <div id="card-errors" class="payment-errors"></div>
@@ -118,6 +138,10 @@
         <p class="label">Subtotal</p>
         <p class="price" data-subtotal></p>
       </div>
+      <div class="line-item discount">
+          <p class="label">7day Trial</p>
+          <p class="price" data-discount></p>
+        </div>
       <div class="line-item shipping">
         <p class="label">Shipping</p>
         <p class="price">Free</p>

@@ -142,22 +142,25 @@ class Store {
   async displayOrderSummary() {
     // Fetch the products from the store to get all the details (name, price, etc.).
     await this.loadProducts();
+    const config = await store.getConfig();
     const orderItems = document.getElementById('order-items');
     const orderTotal = document.getElementById('order-total');
-    let currency;
+
+    let currency, iqosCost;
+
     // Build and append the line items to the order summary.
     for (let [id, product] of Object.entries(this.products)) {
-      const randomQuantity = (min, max) => {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      };
-      const quantity = randomQuantity(1, 3);
+      const quantity = 1;
       let sku = product.skus.data[0];
+      sku.price  =  product.id==='iqos'?"5150":sku.price;
       let skuPrice = this.formatPrice(sku.price, sku.currency);
+      //if product iqos set pricing to 0
       let lineItemPrice = this.formatPrice(sku.price * quantity, sku.currency);
       let lineItem = document.createElement('div');
       lineItem.classList.add('line-item');
+      if(product.id==='iqos'){
+        iqosCost = "- "+lineItemPrice;
+      }
       lineItem.innerHTML = `
         <img class="image" src="/images/products/${product.id}.png">
         <div class="label">
@@ -166,6 +169,8 @@ class Store {
         </div>
         <p class="count">${quantity} x ${skuPrice}</p>
         <p class="price">${lineItemPrice}</p>`;
+
+
       orderItems.appendChild(lineItem);
       currency = sku.currency;
       this.lineItems.push({
@@ -175,8 +180,14 @@ class Store {
       });
     }
     // Add the subtotal and total to the order summary.
+    const subtotal = this.formatPrice(this.getOrderTotal(), currency);
+    console.log("BEFORE:",  this.products);
+    this.products['iqos'].skus.data[0].price = 0;
+    console.log("AFTER:",  this.products);
     const total = this.formatPrice(this.getOrderTotal(), currency);
-    orderTotal.querySelector('[data-subtotal]').innerText = total;
+
+    orderTotal.querySelector('[data-subtotal]').innerText = subtotal;
+    orderTotal.querySelector('[data-discount]').innerText = iqosCost;
     orderTotal.querySelector('[data-total]').innerText = total;
     document.getElementById('main').classList.remove('loading');
   }
