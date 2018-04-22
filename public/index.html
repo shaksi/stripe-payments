@@ -14,7 +14,7 @@
       <a class="shop" href="/"></a>
       <a class="shop" href="/">Home</a>
     </header>
-    <div id="checkout">
+    <div id="checkout" class="visible">
       <div id="payment-request">
         <div id="payment-request-button"></div>
       </div>
@@ -81,17 +81,19 @@
               </label>
             </fieldset>
           </div>
+          <p class="tip">Your card will not be charged until the end of the trial.</p>
+
         </section>
         <section>
             <h2>Terms &amp; Conditions</h2>
           <div class="legal">
             <fieldset>
               <label class="marketing">
-                <input id="marketing" type="checkbox" required>
+                <input id="marketing" name="marketing" type="checkbox" value="yes" required>
                 <span>I am happy for you to contact me for for marketing and customer care purposes.</span>
               </label>
               <label class="legal">
-                <input id="legal" type="checkbox" required>
+                <input id="legal" name="legal" type="checkbox" value="agree" required>
                 <span>I confirm that I have read, understood and accept the 
                   <a href="https://www.iqos.co.uk/terms-and-conditions">Terms and Conditions</a> 
                   and <a href="https://www.iqos.co.uk/privacy-policy">Privacy Policy</a>
@@ -123,8 +125,13 @@
       </div>
       <div class="status error">
         <h1>Oops, payment failed.</h1>
-        <p>It looks like your order could not be paid at this time. Please try again or select a different payment option.</p>
+        <p>It looks like your order could not be paid at this time. Please try again or select a different payment method.</p>
         <p class="error-message"></p>
+        <button type="submit"
+                onclick="document.getElementById('main').classList.remove('error');
+                         document.getElementById('checkout').classList.add('visible');">
+          Go back
+        </button>
       </div>
     </div>
   </div>

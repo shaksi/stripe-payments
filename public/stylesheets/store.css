@@ -81,7 +81,7 @@ header a:hover {
   transition: visibility 0s, opacity 0.5s linear 0.5s;
 }
 
-#main.checkout #checkout {
+ #checkout.visible {
   visibility: visible;
   opacity: 1;
 }

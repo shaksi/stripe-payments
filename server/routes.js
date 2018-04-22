@@ -38,9 +38,9 @@ router.get('/', (req, res) => {
 
 // Create an order on the backend.
 router.post('/orders', async (req, res, next) => {
-  let {currency, items, email, shipping} = req.body;
+  let {currency, items, email, shipping, extra} = req.body;
   try {
-    let order = await orders.create(currency, items, email, shipping);
+    let order = await orders.create(currency, items, email, shipping, extra);
     return res.status(200).json({order});
   } catch (err) {
     return res.status(500).json({error: err.message});
@@ -73,7 +73,7 @@ router.post('/orders/:id/pay', async (req, res, next) => {
     if (source && source.status === 'chargeable') {
       let charge, status;
       try {
-
+console.log("order:",order);
        const customer =  await stripe.customers.create({
           email: order.email,
           source: source.id,
@@ -82,6 +82,11 @@ router.post('/orders/:id/pay', async (req, res, next) => {
             phone:order.shipping.phone,
             address:order.shipping.address,
             },
+          metadata:{
+            marketing: order.metadata.marketing,
+            legal: order.metadata.legal,
+            dob: order.metadata.dob,
+          }
         });
         charge = await stripe.charges.create(
           {
@@ -91,6 +96,11 @@ router.post('/orders/:id/pay', async (req, res, next) => {
             currency: order.currency,
             receipt_email: order.email,
             capture:false,
+            metadata:{
+              marketing: order.metadata.marketing,
+              legal: order.metadata.legal,
+              dob: order.metadata.dob
+            }
           },
           {
             // Set a unique idempotency key based on the order ID.

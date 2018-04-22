@@ -56,11 +56,13 @@ class Store {
   async loadProducts() {
     const productsResponse = await fetch('/products');
     const products = (await productsResponse.json()).data;
+    console.log("ALLMYPRODUCTS:",products);
     products.forEach(product => (this.products[product.id] = product));
   }
 
   // Create an order object to represent the line items.
-  async createOrder(currency, items, email, shipping) {
+  async createOrder(currency, items, email, shipping, extra) {
+    console.log(extra);
     try {
       const response = await fetch('/orders', {
         method: 'POST',
@@ -70,6 +72,7 @@ class Store {
           items,
           email,
           shipping,
+          extra
         }),
       });
       const data = await response.json();
@@ -152,9 +155,9 @@ class Store {
     for (let [id, product] of Object.entries(this.products)) {
       const quantity = 1;
       let sku = product.skus.data[0];
+      //if product iqos set pricing to 0
       sku.price  =  product.id==='iqos'?"5150":sku.price;
       let skuPrice = this.formatPrice(sku.price, sku.currency);
-      //if product iqos set pricing to 0
       let lineItemPrice = this.formatPrice(sku.price * quantity, sku.currency);
       let lineItem = document.createElement('div');
       lineItem.classList.add('line-item');
