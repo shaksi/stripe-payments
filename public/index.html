@@ -14,158 +14,46 @@
       <a class="shop" href="/"></a>
       <a class="shop" href="/">Home</a>
     </header>
-    <div id="checkout" class="visible">
-      <div id="payment-request">
-        <div id="payment-request-button"></div>
-      </div>
-      <form id="payment-form" method="POST" action="/orders">
-        <p class="instruction">Complete your shipping and payment details below</p>
-        <section>
-          <h2>Shipping &amp; Billing Information</h2>
-          <fieldset class="">
-            <label>
-              <span>Name</span>
-              <input name="name" class="field" placeholder="Jenny Rosen" required>
-            </label>
-            <label>
-              <span>Email</span>
-              <input name="email" type="email" class="field" placeholder="jenny@example.com" required>
-            </label>
-            <label>
-              <span>Phone</span>
-              <input name="phone" type="field" class="field" placeholder="079000000000000" required>
-            </label>
-            <label>
-              <span>Address</span>
-              <input name="address" class="field" placeholder="Flat 1, 28 London Road">
-            </label>
-            <label>
-              <span>City</span>
-              <input name="city" class="field" placeholder="London">
-            </label>
-            <label class="state">
-              <span>State</span>
-              <input name="state" class="field" placeholder="CA">
-            </label>
-            <label class="zip">
-              <span>Postcode</span>
-              <input name="postal_code" class="field" placeholder="NW1 1NW">
-            </label>
-            <label class="select">
-              <span>Country</span>
-              <div id="country" class="field GB">
-                <select name="country">
 
-                  <option value="GB"selected="selected" >United Kingdom</option>
-                </select>
-              </div>
+    <div id="checkout" class="visible">
+
+      <form id="payment-form" method="GET" action="/checkout.html">
+        <section>
+            <div class="question"><span>We are offering you the opportunity to take part in our new 7 day Trial programme where you can try the IQOS experience in the comfort of your own home. <br><br>Simply order your IQOS device and we'll deliver your products to you the next day. <br><br>If you decide to return the IQOS device after the 7 day trial period, we will not charge you anything for the device and you will only be charged for the HEETS tobacco sticks (£22.50). <br><br>We are confident you will enjoy the IQOS experience and at the end of the trial period the device can be yours for £74 (RRP £136.50)<br><br>To get started select your IQOS device colour and delivery method and you order will be with you next day. Free Shipping inc. </span></div>
+        </section>
+        <section>
+          <h2>Are you over 18</h2>
+          <fieldset class="">
+            <label class="dob">
+              <span>Date Of Birth</span>
+              <input name="dob" class="field" placeholder="08/09/1990" required>
             </label>
           </fieldset>
-          <!-- <p class="tip">Select another country to see different payment options.</p> -->
+          <p class="tip">You must be 18+ to particpicate and we will verify before delivery. </p>
         </section>
         <section>
-          <h2>Payment Information</h2>
-          <nav id="payment-methods">
-            <ul>
-              <li>
-                <input type="radio" name="payment" id="payment-card" value="card" checked>
-                <label for="payment-card">Card</label>
-              </li>
-            </ul>
-          </nav>
-          <div class="payment-info card visible">
-            <fieldset>
-              <label>
-                <span>Card</span>
-                <div id="card-element" class="field"></div>
-              </label>
-            </fieldset>
-          </div>
-          <p class="tip">Your card will not be charged until the end of the trial.</p>
+            <h2>Select your preferred device colour</h2>
+          <fieldset>
+        <div class="cc-selector">
 
-        </section>
-        <section>
-            <h2>Terms &amp; Conditions</h2>
-          <div class="legal">
-            <fieldset>
-              <label class="marketing">
-                <input id="marketing" name="marketing" type="checkbox" value="yes" required>
-                <span>I am happy for you to contact me for for marketing and customer care purposes.</span>
-              </label>
-              <label class="legal">
-                <input id="legal" name="legal" type="checkbox" value="agree" required>
-                <span>I confirm that I have read, understood and accept the 
-                  <a href="https://www.iqos.co.uk/terms-and-conditions">Terms and Conditions</a> 
-                  and <a href="https://www.iqos.co.uk/privacy-policy">Privacy Policy</a>
-                </span>
-              </label>
-            </fieldset>
-          </div>
-          <p class="tip">By submitting this form you consent to be contacted by us about the 7 Day Trial.</p>
-        </section>
-        <button type="submit">Pay</button>
+            <input id="white" type="radio" name="colour" value="white" required/>
+            <label class="device-colour white"for="white"></label>
+            <input id="navy" type="radio" name="colour" value="navy" required/>
+            <label class="device-colour navy" for="navy"></label>
+
+        </div>
+      </fieldset>
+
+      </section>
+      <p class="tip">Trial devices come with 3 packs of HEETS. Each pack contains 20 tobacco sticks.</p>
+      <p>&nbsp;</p>
+        <button type="submit">Continue</button>
       </form>
       <div id="card-errors" class="payment-errors"></div>
     </div>
-    <div id="confirmation">
-      <div class="status processing">
-        <h1>Completing your order…</h1>
-        <p>We’re just waiting for the confirmation from your bank… This might take a moment but feel free to close this page.</p>
-        <p>We’ll send your receipt via email shortly.</p>
-      </div>
-      <div class="status success">
-        <h1>Thanks for your order!</h1>
-        <p>Woot! You successfully made a payment with Stripe.</p>
-        <p class="note">We just sent your receipt to your email address, and your items will be on their way shortly.</p>
-      </div>
-      <div class="status receiver">
-        <h1>Thanks! One last step!</h1>
-        <p>Please make a payment using the details below to complete your order.</p>
-        <div class="info"></div>
-      </div>
-      <div class="status error">
-        <h1>Oops, payment failed.</h1>
-        <p>It looks like your order could not be paid at this time. Please try again or select a different payment method.</p>
-        <p class="error-message"></p>
-        <button type="submit"
-                onclick="document.getElementById('main').classList.remove('error');
-                         document.getElementById('checkout').classList.add('visible');">
-          Go back
-        </button>
-      </div>
-    </div>
+
   </div>
-  <div id="summary">
-    <header>
-      <h1>Order Summary</h1>
-    </header>
-    <div id="order-items"></div>
-    <div id="order-total">
-      <div class="line-item subtotal">
-        <p class="label">Subtotal</p>
-        <p class="price" data-subtotal></p>
-      </div>
-      <div class="line-item discount">
-          <p class="label">7day Trial</p>
-          <p class="price" data-discount></p>
-        </div>
-      <div class="line-item shipping">
-        <p class="label">Shipping</p>
-        <p class="price">Free</p>
-      </div>
-      <div class="line-item total">
-        <p class="label">Total</p>
-        <p class="price" data-total></p>
-      </div>
-    </div>
-  </div>
-  <!-- Stripe.js v3 for Elements -->
-  <script src="https://js.stripe.com/v3/"></script>
-  <!-- Library to render QR codes -->
-  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-  <!-- App -->
-  <script src="/javascripts/store.js"></script>
-  <script src="/javascripts/payments.js"></script>
+
 </body>
 
 </html>

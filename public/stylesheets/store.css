@@ -286,6 +286,23 @@ select:-webkit-autofill {
   margin-top: -1px;
 }
 
+.question {
+  color: #37404a;
+  font-family: "Karla","Helvetica Neue",sans serif;
+  position: relative;
+  padding: 0;
+  cursor: default;
+  padding-left: 50px;
+  line-height: 140%;
+  text-align: left;
+  font-size: 24px;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
 button {
   display: block;
   background: #666ee8;
@@ -879,4 +896,41 @@ button:active {
   #confirmation h1 {
     text-align: center;
   }
+}
+
+.cc-selector input{
+  margin:0;padding:0;
+  -webkit-appearance:none;
+     -moz-appearance:none;
+          appearance:none;
+}
+.navy{background-image:url(https://images.typeform.com/images/ntBscYFxZFkv/choice/supersizefit#.jpeg);}
+.white{background-image:url(https://images.typeform.com/images/6x43UNSRjfvs/choice/supersizefit#.jpeg);}
+
+.cc-selector input:active +.device-colour{opacity: 0.5;border: grey;
+  border-style: solid;}
+.cc-selector input:checked +.device-colour{
+  border: grey;
+  border-style: solid;
+  -webkit-filter: none;
+     -moz-filter: none;
+          filter: none;
+}
+.device-colour{
+  cursor:pointer;
+  background-size:contain;
+  background-repeat:no-repeat;
+  display:inline-block;
+  width:180px;height:140px;
+  -webkit-transition: all 100ms ease-in;
+     -moz-transition: all 100ms ease-in;
+          transition: all 100ms ease-in;
+          -webkit-filter: opacity(.7);
+          -moz-filter: opacity(.7);
+               filter: opacity(.7);
+}
+.device-colour:hover{
+  -webkit-filter: opacity(.5);
+     -moz-filter: opacity(.5);
+          filter: opacity(.5);
 }

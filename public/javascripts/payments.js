@@ -13,13 +13,25 @@
 (async () => {
   'use strict';
 
-  // Retrieve the configuration for the store.
-  const config = await store.getConfig();
+  const decodeEntities = (function() {
+    // this prevents any overhead from creating the object each time
+    let element = document.createElement('div');
 
-  // Create references to the main form and its submit button.
-  const form = document.getElementById('payment-form');
-  const submitButton = form.querySelector('button[type=submit]');
+    function decodeHTMLEntities (str) {
+      if(str && typeof str === 'string') {
+        // strip script/html tags
+        str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+        str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+        element.innerHTML = str;
+        str = element.textContent;
+        element.textContent = '';
+      }
 
+      return str;
+    }
+
+    return decodeHTMLEntities;
+  })();
   const getQueryVariable = (variable) => {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
@@ -29,6 +41,24 @@
     }
     return(false);
   }
+  const dob = getQueryVariable("dob");
+  const colour = getQueryVariable("colour");
+  console.log("dob:", dob);
+  console.log("colour:", colour)
+  if (dob=="" || colour=="" ) {
+    window.location.replace("/");
+  }
+  //set the dob value from url
+  document.getElementById("dob").value = dob.replace(new RegExp('%2F', 'g'), "/");
+
+  // Retrieve the configuration for the store.
+  const config = await store.getConfig();
+ await store.displayOrderSummary(colour);
+  // Create references to the main form and its submit button.
+  const form = document.getElementById('payment-form');
+  const submitButton = form.querySelector('button[type=submit]');
+
+
   /**
    * Setup Stripe Elements.
    */
@@ -223,7 +253,7 @@
     const extra = {
       marketing:form.querySelector('input[name=marketing]').value,
       legal:form.querySelector('input[name=legal]').value,
-      dob:"08/09/1984"
+      dob:form.querySelector('input[name=dob]').value
     };
     // Disable the Pay button to prevent multiple click events.
     submitButton.disabled = true;

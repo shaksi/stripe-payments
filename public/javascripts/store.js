@@ -12,7 +12,7 @@ class Store {
   constructor() {
     this.lineItems = [];
     this.products = {};
-    this.displayOrderSummary();
+    // this.;
   }
 
   // Compute the total for the order based on the line items (SKUs and quantity).
@@ -142,7 +142,7 @@ class Store {
   // Manipulate the DOM to display the order summary on the right panel.
   // Note: For simplicity, we're just using template strings to inject data in the DOM,
   // but in production you would typically use a library like React to manage this effectively.
-  async displayOrderSummary() {
+  async displayOrderSummary(colour="white") {
     // Fetch the products from the store to get all the details (name, price, etc.).
     await this.loadProducts();
     const config = await store.getConfig();
@@ -155,6 +155,13 @@ class Store {
     for (let [id, product] of Object.entries(this.products)) {
       const quantity = 1;
       let sku = product.skus.data[0];
+      let imgName = product.id;
+      //if colour is white set sku's
+      if (product.id==='iqos' && colour === "white") {
+        sku = product.skus.data[1];
+
+      }
+
       //if product iqos set pricing to 0
       sku.price  =  product.id==='iqos'?"5150":sku.price;
       let skuPrice = this.formatPrice(sku.price, sku.currency);
@@ -164,8 +171,9 @@ class Store {
       if(product.id==='iqos'){
         iqosCost = "- "+lineItemPrice;
       }
+
       lineItem.innerHTML = `
-        <img class="image" src="/images/products/${product.id}.png">
+        <img class="image" src="/images/products/${sku.id}.png">
         <div class="label">
           <p class="product">${product.name}</p>
           <p class="sku">${Object.values(sku.attributes).join(' ')}</p>
