@@ -104,7 +104,7 @@
           </div>
           <p class="tip">By submitting this form you consent to be contacted by us about the 7 Day Trial.</p>
         </section>
-        <button type="submit">Pay</button>
+        <button type="submit" id="pay">Pay</button>
       </form>
       <div id="card-errors" class="payment-errors"></div>
     </div>
@@ -129,8 +129,13 @@
         <p>It looks like your order could not be paid at this time. Please try again or select a different payment method.</p>
         <p class="error-message"></p>
         <button type="submit"
-                onclick="document.getElementById('main').classList.remove('error');
-                         document.getElementById('checkout').classList.add('visible');">
+                onclick="
+                        document.getElementById('pay').innerHTML = 'Pay £22.50';
+                        document.getElementById('pay').disabled = true;
+                        document.getElementById('main').classList.remove('error');
+                        document.getElementById('checkout').classList.add('visible');
+
+                ">
           Go back
         </button>
       </div>
@@ -164,8 +169,6 @@
   <script src="https://js.stripe.com/v3/"></script>
   <!-- Library to render QR codes -->
   <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-  <!-- underscore -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.0/underscore-min.js"></script>
   <!-- App -->
   <script src="/javascripts/store.js"></script>
   <script src="/javascripts/payments.js"></script>
