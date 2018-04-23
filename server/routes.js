@@ -73,7 +73,6 @@ router.post('/orders/:id/pay', async (req, res, next) => {
     if (source && source.status === 'chargeable') {
       let charge, status;
       try {
-console.log("order:",order);
        const customer =  await stripe.customers.create({
           email: order.email,
           source: source.id,
@@ -109,7 +108,6 @@ console.log("order:",order);
           }
         );
       } catch (err) {
-        // console.log(err);
         // This is where you handle declines and errors.
         // For the demo we simply set to failed.
         status = 'failed';

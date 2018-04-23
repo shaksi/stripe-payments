@@ -15,7 +15,6 @@ stripe.setApiVersion(config.stripe.apiVersion);
 
 // Create an order.
 const createOrder = async (currency, items, email, shipping, extra ) => {
-  console.log("create:",extra);
   return await stripe.orders.create({
     currency,
     items,

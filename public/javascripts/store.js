@@ -56,13 +56,11 @@ class Store {
   async loadProducts() {
     const productsResponse = await fetch('/products');
     const products = (await productsResponse.json()).data;
-    console.log("ALLMYPRODUCTS:",products);
     products.forEach(product => (this.products[product.id] = product));
   }
 
   // Create an order object to represent the line items.
   async createOrder(currency, items, email, shipping, extra) {
-    console.log(extra);
     try {
       const response = await fetch('/orders', {
         method: 'POST',
@@ -192,9 +190,7 @@ class Store {
     }
     // Add the subtotal and total to the order summary.
     const subtotal = this.formatPrice(this.getOrderTotal(), currency);
-    console.log("BEFORE:",  this.products);
     this.products['iqos'].skus.data[0].price = 0;
-    console.log("AFTER:",  this.products);
     const total = this.formatPrice(this.getOrderTotal(), currency);
 
     orderTotal.querySelector('[data-subtotal]').innerText = subtotal;

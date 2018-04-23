@@ -43,8 +43,7 @@
   }
   const dob = getQueryVariable("dob");
   const colour = getQueryVariable("colour");
-  console.log("dob:", dob);
-  console.log("colour:", colour)
+
   if (dob=="" || colour=="" ) {
     window.location.replace("/");
   }
@@ -326,23 +325,20 @@
     const mainElement = document.getElementById('main');
     const checkoutElement = document.getElementById('checkout');
     const confirmationElement = document.getElementById('confirmation');
-    console.log(error);
+
     if (error) {
       mainElement.classList.remove('processing');
       mainElement.classList.remove('receiver');
       confirmationElement.querySelector('.error-message').innerText =
         error.message;
       mainElement.classList.add('error');
-      console.log(error.message);
     }
-    console.log("status:",order.metadata.status);
     switch (order.metadata.status) {
       case 'created':
         switch (source.status) {
           case 'chargeable':
             submitButton.textContent = 'Processing Payment…';
             const response = await store.payOrder(order, source);
-            console.log(response);
             await handleOrder(response.order, response.source);
             break;
           case 'failed':
@@ -365,7 +361,6 @@
         break;
 
       case 'failed':
-      console.log(checkoutElement);
         checkoutElement.classList.remove('visible');
         // Payment for the order has failed.
         mainElement.classList.remove('success');
