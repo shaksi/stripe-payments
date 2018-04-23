@@ -12,16 +12,18 @@
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  /* font-family: "Planer"; */
   font-size: 15px;
   line-height: 1.4em;
   /* color: #525f7f; */
+  color: #7d7d7d;
 }
 
 body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #f8fbfd;
+  /* background: #f8fbfd; */
 }
 
 /* Overall Container */
@@ -42,7 +44,7 @@ body {
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
   height: 80px;
   background: #fff url(/images/header_logo.png) left center no-repeat;
@@ -59,6 +61,21 @@ header a.github {
   letter-spacing: 0.3px;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+header a.menu {
+  margin-top: 27px;
+  margin-right: 5;
+  margin-left: 5;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #0071dc;
+  /* letter-spacing: 0.3px; */
+  /* text-transform: uppercase; */
+  text-decoration: none;
+}
 }
 
 header a.github {
@@ -93,6 +110,10 @@ section {
   text-align: left;
 }
 
+h1, h2, h3 {
+  color: #0071dc;
+}
+
 h1 {
   margin: 0 0 20px 0;
   font-size: 20px;
@@ -101,7 +122,6 @@ h1 {
 
 h2 {
   margin: 15px 0;
-  color: #32325d;
   text-transform: uppercase;
   letter-spacing: 0.3px;
   font-size: 13px;
@@ -305,7 +325,7 @@ select:-webkit-autofill {
 }
 button {
   display: block;
-  background: #666ee8;
+  background: #0071dc;
   color: #fff;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
@@ -837,7 +857,11 @@ button:active {
     margin: 30px;
   }
 }
-
+.cc-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 .cc-selector input{
   margin:0;padding:0;
   -webkit-appearance:none;
@@ -875,6 +899,9 @@ button:active {
           filter: opacity(.5);
 }
 
+.device-selector {
+  width: fit-content;
+}
 
 @media only screen and (max-width: 500px) {
   header {
