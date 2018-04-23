@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #f8fbfd;
+  /* background: #f8fbfd; */
 }
 
 /* Overall Container */
