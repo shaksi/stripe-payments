@@ -250,8 +250,8 @@
     };
 
     const extra = {
-      marketing:form.querySelector('input[name=marketing]').value,
-      legal:form.querySelector('input[name=legal]').value,
+      marketing:form.querySelector('input[name=marketing]').checked,
+      legal:form.querySelector('input[name=legal]').checked,
       dob:form.querySelector('input[name=dob]').value
     };
     // Disable the Pay button to prevent multiple click events.
