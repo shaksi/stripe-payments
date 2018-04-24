@@ -41,12 +41,7 @@ class Store {
   async getConfig() {
     try {
       const response = await fetch('/config');
-      const config = await response.json();
-      if (config.stripePublishableKey.includes('live')) {
-        // Hide the demo notice if the publishable key is in live mode.
-        document.querySelector('#order-total .demo').style.display = 'none';
-      }
-      return config;
+      return await response.json();
     } catch (err) {
       return {error: err.message};
     }
