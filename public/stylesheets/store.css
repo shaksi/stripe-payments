@@ -898,8 +898,25 @@ button:active {
 .burger-menu {
   visibility: hidden;
 }
-/* Media Queries */
 
+#header-menu {
+  margin-bottom: 30px;
+}
+
+/* Media Queries */
+@media only screen and (min-width : 1025px) {
+  div#checkout.visible.padding-page {
+    box-sizing: border-box;
+    padding: 50px 114px !important;
+    box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.08);
+    width: 945px !important;
+    max-width: 945px;
+  }
+  .continue {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
 @media only screen and (max-width: 1024px) {
   #main.checkout:not(.success):not(.error) {
     width: calc(100% - 320px);
@@ -921,6 +938,7 @@ button:active {
   #summary .line-item .label {
     margin: 0;
   }
+
 }
 
 @media only screen and (max-width: 800px) {
@@ -938,6 +956,9 @@ button:active {
     width: auto;
     height: auto;
     margin: 30px;
+  }
+  .legal-txt {
+    height: 70px;
   }
 
 }
@@ -1016,6 +1037,9 @@ button:active {
   .intro {
     padding: 20px 30px 30px;
   }
+  .legal fieldset label {
+    height: 70px;
+  }
   /* show the burger menu icon */
   .burger-button {
     visibility: visible;
@@ -1071,6 +1095,7 @@ button:active {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr="'#79dab3'",EndColorStr="'#0071dc'");
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#79dab3', EndColorStr='#0071dc')";
   }
+
 }
 
 @media print, screen, (-webkit-min-device-pixel-ratio: 2.25), not all, not all, not all, not all, not all, (min-resolution: 220dpi), (min-resolution: 2.25dppx){

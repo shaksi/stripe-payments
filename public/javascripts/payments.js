@@ -379,7 +379,7 @@
         mainElement.classList.remove('receiver');
         // Update the note about receipt and shipping (the payment has been fully confirmed by the bank).
         confirmationElement.querySelector('.note').innerText =
-          'We will send confirmation to your email in the next few minutes, and your items will be on their way shortly.';
+          'We will send the confirmation to your email in the next few minutes, and your items will be on their way shortly.';
         mainElement.classList.add('success');
         break;
     }
@@ -500,7 +500,7 @@
   const updateButtonLabel = paymentMethod => {
     let amount = store.formatPrice(store.getOrderTotal(), config.currency);
     let name = paymentMethods[paymentMethod].name;
-    let label = `Pay ${amount}`;
+    let label = `Place Order ${amount}`;
     if (paymentMethod !== 'card') {
       label = `Pay ${amount} with ${name}`;
     }

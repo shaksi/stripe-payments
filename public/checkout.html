@@ -97,7 +97,7 @@
                 <input id="marketing" name="marketing" type="checkbox" value="yes">
                 <span>I am happy for you to contact me for for marketing and customer care purposes.</span>
               </label>
-              <label class="legal">
+              <label class="legal-txt">
                 <input id="legal" name="legal" type="checkbox" value="agree" required>
                 <span>I confirm that I have read, understood and accept the 
                   <a href="https://www.iqos.co.uk/terms-and-conditions">Terms and Conditions</a> 
@@ -108,7 +108,7 @@
           </div>
           <p class="tip">By submitting this form you consent to be contacted by us about the 7 Day Trial.</p>
         </section>
-        <button type="submit" id="pay">Pay</button>
+        <button type="submit" id="pay">Place Order</button>
       </form>
       <div id="card-errors" class="payment-errors"></div>
     </div>
@@ -133,7 +133,7 @@
         <p class="error-message"></p>
         <button type="submit"
                 onclick="
-                        document.getElementById('pay').innerHTML = 'Pay £22.50';
+                        document.getElementById('pay').innerHTML = 'Place Order';
                         document.getElementById('pay').disabled = true;
                         document.getElementById('main').classList.remove('error');
                         document.getElementById('checkout').classList.add('visible');
@@ -166,6 +166,8 @@
         <p class="label">Total</p>
         <p class="price" data-total></p>
       </div>
+      <p class="tip">Your card will not be charged until the end of the trial.</p>
+
     </div>
   </div>
   <!-- Stripe.js v3 for Elements -->
