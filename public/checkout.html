@@ -90,16 +90,16 @@
 
         </section>
         <section>
-            <h2>Terms &amp; Conditions</h2>
+            <h2>Terms &amp; Conditions and Privacy Policy</h2>
           <div class="legal">
             <fieldset>
               <label class="marketing">
                 <input id="marketing" name="marketing" type="checkbox" value="yes">
-                <span>I am happy for you to contact me for for marketing and customer care purposes.</span>
+                <span>I am happy for you to contact me for customer care purposes and future communications.</span>
               </label>
               <label class="legal-txt">
                 <input id="legal" name="legal" type="checkbox" value="agree" required>
-                <span>I confirm that I have read, understood and accept the 
+                <span>I confirm that I have read, understood the  
                   <a href="https://www.iqos.co.uk/terms-and-conditions">Terms and Conditions</a> 
                   and <a href="https://www.iqos.co.uk/privacy-policy">Privacy Policy</a>
                 </span>
@@ -170,8 +170,46 @@
 
     </div>
   </div>
-  <!-- Stripe.js v3 for Elements -->
+    <!-- Stripe.js v3 for Elements -->
   <script src="https://js.stripe.com/v3/"></script>
+  <script>
+  // Create a Stripe client.
+  const stripe = Stripe("pk_live_DClcyCWmY4O9bpougbTLhbuz");
+console.log("HELLO KEY");
+  // Create an instance of Elements.
+  const elements = stripe.elements();
+
+  // Prepare the options for Elements to be styled accordingly.
+  const elementsOptions = {
+    style: {
+      base: {
+        iconColor: '#666ee8',
+        color: '#31325f',
+        fontWeight: 400,
+        fontFamily:
+          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '15px',
+        '::placeholder': {
+          color: '#aab7c4',
+        },
+        ':-webkit-autofill': {
+          color: '#666ee8',
+        },
+      },
+    },
+  };
+
+  /**
+   * Implement a Stripe Card Element that matches the look-and-feel of the app.
+   *
+   * This makes it easy to collect debit and credit card payments information.
+   */
+
+  // Create a Card Element and pass some custom styles to it.
+  const card = elements.create('card', elementsOptions);
+</script>
+
   <!-- Library to render QR codes -->
   <!-- App -->
   <script src="/javascripts/store.js"></script>
