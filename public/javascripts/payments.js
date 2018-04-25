@@ -269,7 +269,7 @@
       case 'created':
         switch (source.status) {
           case 'chargeable':
-            submitButton.textContent = 'Processing Payment…';
+            submitButton.textContent = 'Processing Order…';
             const response = await store.payOrder(order, source);
             await handleOrder(response.order, response.source);
             break;
