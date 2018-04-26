@@ -179,6 +179,7 @@ h2 {
 .progressbar li.active + li:after {
   background-color: #0071dc;
 }
+
 /* Payment Request */
 
 #payment-request {
@@ -973,6 +974,14 @@ button:active {
   header a.github {
     display: none;
   }
+  section {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+    /* width: 90%; */
+    padding-left: 10px;
+}
   #payment-request {
     min-height: 0;
     padding-right: 15px;
@@ -984,6 +993,22 @@ button:active {
     border-width: 2px 0 0 0;
     border-radius: 0;
   }
+  #payment-form-index {
+   width:90%;
+   padding-left:10px
+  }
+  .continue {
+    margin-left:10px;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+    /* width: 90%; */
+    padding-left: 10px;
+  }
+
   .payment-info span {
     display: none;
   }
@@ -1027,7 +1052,7 @@ button:active {
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:160px;height:120px;
+    width:145px;height:120px;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -1095,6 +1120,10 @@ button:active {
     background: -o-linear-gradient(top,#79dab3,#0071dc);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr="'#79dab3'",EndColorStr="'#0071dc'");
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#79dab3', EndColorStr='#0071dc')";
+  }
+
+  li.active.large {
+    width: 94px;
   }
 
 }

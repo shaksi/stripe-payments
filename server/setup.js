@@ -36,7 +36,7 @@ module.exports = {
             id: 'heets-mix',
             product: 'heets',
             attributes: {type: '3 packs of HEETS (Amber, Turquoise, Yellow) Each pack contains 20 tobacco sticks'},
-            price: 2250,
+            price: 2400,
             currency: config.currency,
             inventory: {type: 'infinite'},
           });
