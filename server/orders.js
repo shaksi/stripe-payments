@@ -24,7 +24,12 @@ const createOrder = async (currency, items, email, shipping, extra ) => {
       status: 'created',
       marketing: extra.marketing,
       legal: extra.legal,
-      dob: extra.dob
+      dob: extra.dob,
+      AgeVerified:"NA",
+      ReturnNumber:"NA",
+      DispatchNumber:"NA",
+      brochure:"NA",
+      DeviceId:"NA",
     },
   });
 };
