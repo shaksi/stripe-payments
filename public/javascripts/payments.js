@@ -432,7 +432,7 @@
   const updateButtonLabel = paymentMethod => {
     let amount = store.formatPrice(store.getOrderTotal(), config.currency);
     let name = paymentMethods[paymentMethod].name;
-    let label = `Place Order ${amount}`;
+    let label = `Place Order`;
     if (paymentMethod !== 'card') {
       label = `Pay ${amount} with ${name}`;
     }
