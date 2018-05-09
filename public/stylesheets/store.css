@@ -362,7 +362,6 @@ button {
   display: block;
   background: #0071dc;
   color: #fff;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
   border: 0;
   font-weight: 700;
@@ -907,9 +906,7 @@ button:active {
 /* Media Queries */
 @media only screen and (min-width : 1025px) {
   div#checkout.visible.padding-page {
-    box-sizing: border-box;
     padding: 50px 114px !important;
-    box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.08);
     width: 945px !important;
     max-width: 945px;
     margin-bottom: 30px;
