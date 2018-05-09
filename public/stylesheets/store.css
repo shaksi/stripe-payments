@@ -371,7 +371,7 @@ button {
 }
 
 button:focus {
-  background: #555abf;
+  background: #404040;
 }
 
 button:hover {
