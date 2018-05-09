@@ -327,7 +327,7 @@ select {
 }
 
 select:focus {
-  color: #666ee8;
+  color: #404040;
 }
 
 ::-webkit-input-placeholder {
@@ -343,7 +343,6 @@ select:focus {
 
 input:-webkit-autofill,
 select:-webkit-autofill {
-  -webkit-text-fill-color: #666ee8;
   transition: background-color 100000000s;
   -webkit-animation: 1ms void-animation-out 1s;
 }
