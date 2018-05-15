@@ -858,6 +858,11 @@ button:active {
 }
 .navy{background-image:url(https://images.typeform.com/images/ntBscYFxZFkv/choice/supersizefit#.jpeg);}
 .white{background-image:url(https://images.typeform.com/images/6x43UNSRjfvs/choice/supersizefit#.jpeg);}
+.heets-amber{background-image:url(https://d2eb98cwc7neh6.cloudfront.net/images/leadGen/heets-amber.png);}
+.heets-yellow{background-image:url(https://d2eb98cwc7neh6.cloudfront.net/images/leadGen/heets-yellow.png);}
+.heets-turquoise{background-image:url(https://d2eb98cwc7neh6.cloudfront.net/images/leadGen/heets-turquoise.png);}
+.heets-mix{background-image:url(https://d2eb98cwc7neh6.cloudfront.net/images/leadGen/heets-mix.png);}
+
 
 .cc-selector input:active +.device-colour{opacity: 0.5;border: grey;
   border-style: solid;}
