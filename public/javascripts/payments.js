@@ -43,6 +43,7 @@
   }
   const dob = getQueryVariable("dob");
   const colour = getQueryVariable("colour");
+  const heets = getQueryVariable("heets");
 
   if (dob=="" || colour=="" ) {
     window.location.replace("/");
@@ -52,7 +53,7 @@
 
   // Retrieve the configuration for the store.
   const config = await store.getConfig();
- await store.displayOrderSummary(colour);
+ await store.displayOrderSummary(colour,heets);
   // Create references to the main form and its submit button.
   const form = document.getElementById('payment-form');
   const submitButton = form.querySelector('button[type=submit]');

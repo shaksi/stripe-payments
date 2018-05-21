@@ -65,7 +65,7 @@ class Store {
           items,
           email,
           shipping,
-          extra
+          extra,
         }),
       });
       const data = await response.json();
@@ -135,7 +135,7 @@ class Store {
   // Manipulate the DOM to display the order summary on the right panel.
   // Note: For simplicity, we're just using template strings to inject data in the DOM,
   // but in production you would typically use a library like React to manage this effectively.
-  async displayOrderSummary(colour="white") {
+  async displayOrderSummary(colour = 'white', heets = 'heets-mix') {
     // Fetch the products from the store to get all the details (name, price, etc.).
     await this.loadProducts();
     const config = await store.getConfig();
@@ -150,19 +150,28 @@ class Store {
       let sku = product.skus.data[0];
       let imgName = product.id;
       //if colour is white set sku's
-      if (product.id==='iqos' && colour === "white") {
+      if (product.id === 'iqos' && colour === 'white') {
         sku = product.skus.data[1];
+      }
 
+      if (product.id === 'heets') {
+        console.log(product.skus.data);
+
+        product.skus.data.forEach(function(e, index) {
+          if (e.id === heets) {
+            sku = product.skus.data[index];
+          }
+        });
       }
 
       //if product iqos set pricing to 0
-      sku.price  =  product.id==='iqos'?"5150":sku.price;
+      sku.price = product.id === 'iqos' ? '5150' : sku.price;
       let skuPrice = this.formatPrice(sku.price, sku.currency);
       let lineItemPrice = this.formatPrice(sku.price * quantity, sku.currency);
       let lineItem = document.createElement('div');
       lineItem.classList.add('line-item');
-      if(product.id==='iqos'){
-        iqosCost = "- "+lineItemPrice;
+      if (product.id === 'iqos') {
+        iqosCost = '- ' + lineItemPrice;
       }
 
       lineItem.innerHTML = `
@@ -173,7 +182,6 @@ class Store {
         </div>
         <p class="count">${quantity} x ${skuPrice}</p>
         <p class="price">${lineItemPrice}</p>`;
-
 
       orderItems.appendChild(lineItem);
       currency = sku.currency;
