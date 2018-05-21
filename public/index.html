@@ -1,120 +1,132 @@
 <html>
 
 <head>
-  <title>Try IQOS</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="/stylesheets/store.css">
-  <link rel="icon" type="image/png" sizes="104x80" href="/images/favicon.ico">
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-NRL5B3J');
-  </script>
-  <!-- End Google Tag Manager -->
+    <title>Try IQOS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/store.css">
+    <link rel="icon" type="image/png" sizes="104x80" href="/images/favicon.ico">
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NRL5B3J');
+    </script>
+    <!-- End Google Tag Manager -->
 </head>
+
 <body style="background: white;">
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRL5B3J"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <div id="main" class="landing">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRL5B3J" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="main" class="landing">
 
 
-    <div id="checkout" class="visible padding-page">
-      <div id="#payment-form">
-        <section class="intro">
-            If you're undecided, why not take IQOS home for a 7 day trial and only pay £24 for the HEETS.<br><br><br>
-            <div class="container">
-              <ul class="progressbar">
-                    <li class="active ">Order IQOS <br>trial online</li>
-                    <li class="active">Try it at<br> home <br></li>
-                    <li class="active large">Only pay for <br>what you keep</li>
-              </ul>
+        <div id="checkout" class="visible padding-page">
+            <div id="#payment-form">
+                <section class="intro">
+                    <h2>Interested?</h2>
+                    Just complete the short form and we will send the package via free next day delivery with free returns.
+                    <br>
+                    <br>
+                </section>
             </div>
-            <br><br>
-            We're pretty sure you'll love it and at the end of the 7 days you can keep the IQOS device for an extra £51.50 (RRP £99). If you don't, just send it straight back for no extra charge. <a href="https://uk.iqos.com/terms-and-conditions-en">Terms and conditions apply</a>.<br><br>
-            <h2>Interested?</h2>
-            Just complete the short form and we will send the package via free next day delivery with free returns. <br><br>
-          </section>
+            <form id="payment-form-index" method="GET" action="/checkout.html">
+
+                <section>
+                    <!-- <p class="instruction">Lets get started</p> -->
+
+                    <h2>1) Are you over 18?</h2>
+                    <fieldset class="">
+                        <label class="dob">
+                            <span>Date Of Birth</span>
+                            <input name="dob" class="field" placeholder="08/09/1990" required>
+                        </label>
+                    </fieldset>
+                </section>
+                <p class="tip">You must be 18+ to participate and we will verify before delivery. </p>
+
+                <section>
+                    <h2>2) Select your preferred device colour</h2>
+
+                    <div class="cc-selector">
+                        <fieldset class="device-selector">
+                            <input id="white" type="radio" name="colour" value="white" required/>
+                            <label class="device-colour white" for="white"></label>
+                        </fieldset>
+                        <fieldset class="device-selector">
+                            <input id="navy" type="radio" name="colour" value="navy" required/>
+                            <label class="device-colour navy" for="navy"></label>
+                        </fieldset>
+
+                    </div>
+
+
+                </section>
+                <p class="tip">Trial devices come with 3 variants of HEETS. Each containing 20 tobacco sticks.</p>
+                <p>&nbsp;</p>
+                <button class="continue" type="submit">Continue</button>
+            </form>
+            <div id="card-errors" class="payment-errors"></div>
         </div>
-      <form id="payment-form-index" method="GET" action="/checkout.html">
-
-        <section>
-            <!-- <p class="instruction">Lets get started</p> -->
-
-          <h2>1) Are you over 18?</h2>
-          <fieldset class="">
-            <label class="dob">
-              <span>Date Of Birth</span>
-              <input name="dob" class="field" placeholder="08/09/1990" required>
-            </label>
-          </fieldset>
-        </section>
-        <p class="tip">You must be 18+ to participate and we will verify before delivery. </p>
-
-        <section>
-            <h2>2) Select your preferred device colour</h2>
-
-        <div class="cc-selector">
-            <fieldset class="device-selector">
-            <input id="white" type="radio" name="colour" value="white" required/>
-            <label class="device-colour white"for="white"></label>
-          </fieldset> <fieldset class="device-selector"> <input id="navy" type="radio" name="colour" value="navy" required/>
-            <label class="device-colour navy" for="navy"></label> </fieldset>
-
-        </div>
-
-
-      </section>
-      <p class="tip">Trial devices come with 3 variants of HEETS. Each containing 20 tobacco sticks.</p>
-      <p>&nbsp;</p>
-        <button class="continue" type="submit">Continue</button>
-      </form>
-      <div id="card-errors" class="payment-errors"></div>
-    </div>
-    <div class="span16 burger-menu mobile" style="height: 681px;">
-        <ul class="align-left">
-            <li class="level-0 ">
-                <a href="https://www.iqos.co.uk/shopping-cart" id="cart_status_mobile_2719">
-                    <span>BASKET</span>
-                    <!--cart_status_mobile_2719-->
-                </a>
-            </li>
-            <li class="close"></li>
-        </ul>
-        <div class=" align-left">
-            <ul class="">
+        <div class="span16 burger-menu mobile" style="height: 681px;">
+            <ul class="align-left">
                 <li class="level-0 ">
-                    <a class="burger-menu__icon--shop" href="https://www.iqos.co.uk/about-iqos"><span>Discover</span></a>
+                    <a href="https://www.iqos.co.uk/shopping-cart" id="cart_status_mobile_2719">
+                        <span>BASKET</span>
+                        <!--cart_status_mobile_2719-->
+                    </a>
                 </li>
-                <li class="level-0 ">
-                    <a href="https://www.iqos.co.uk/shop"><span>Shop</span></a>
-                </li>
-                <li class="level-0 ">
-                    <a href="https://www.iqos.co.uk/store-locator-old"><span>Locations</span></a>
-                </li>
-                <li class="level-0 ">
-                    <a href="https://www.iqos.co.uk/contact-us?search_contact=-1"><span>Contact</span></a>
-                </li>
-                <li class="level-0 ">
-                    <a href="https://www.iqos.co.uk/blog"><span>Blog</span></a>
-                </li>
-                <li class="level-0 ">
-                    <a href="https://www.iqos.co.uk/login"><span>Login/Register</span></a>
-                </li>
+                <li class="close"></li>
             </ul>
+            <div class=" align-left">
+                <ul class="">
+                    <li class="level-0 ">
+                        <a class="burger-menu__icon--shop" href="https://www.iqos.co.uk/about-iqos">
+                            <span>Discover</span>
+                        </a>
+                    </li>
+                    <li class="level-0 ">
+                        <a href="https://www.iqos.co.uk/shop">
+                            <span>Shop</span>
+                        </a>
+                    </li>
+                    <li class="level-0 ">
+                        <a href="https://www.iqos.co.uk/store-locator-old">
+                            <span>Locations</span>
+                        </a>
+                    </li>
+                    <li class="level-0 ">
+                        <a href="https://www.iqos.co.uk/contact-us?search_contact=-1">
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                    <li class="level-0 ">
+                        <a href="https://www.iqos.co.uk/blog">
+                            <span>Blog</span>
+                        </a>
+                    </li>
+                    <li class="level-0 ">
+                        <a href="https://www.iqos.co.uk/login">
+                            <span>Login/Register</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-  </div>
-  <!-- Stripe.js v3 for Elements -->
-  <script src="https://js.stripe.com/v3/"></script>
-  <!-- Library to render QR codes -->
-  <!-- App -->
-  <script src="/javascripts/store.js"></script>
-  <!-- <script src="/javascripts/payments.js"></script> -->
+    <!-- Stripe.js v3 for Elements -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Library to render QR codes -->
+    <!-- App -->
+    <script src="/javascripts/store.js"></script>
+    <!-- <script src="/javascripts/payments.js"></script> -->
 </body>
 
 </html>
