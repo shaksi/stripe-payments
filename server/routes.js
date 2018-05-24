@@ -22,8 +22,6 @@ router.get('/', (req, res) => {
   res.render('index.html');
 });
 
-
-
 /**
  * Stripe integration to accept all types of payments with 3 POST endpoints:
  *
@@ -73,19 +71,19 @@ router.post('/orders/:id/pay', async (req, res, next) => {
     if (source && source.status === 'chargeable') {
       let charge, status;
       try {
-       const customer =  await stripe.customers.create({
+        const customer = await stripe.customers.create({
           email: order.email,
           source: source.id,
-          shipping:{
-            name:order.shipping.name,
-            phone:order.shipping.phone,
-            address:order.shipping.address,
-            },
-          metadata:{
+          shipping: {
+            name: order.shipping.name,
+            phone: order.shipping.phone,
+            address: order.shipping.address,
+          },
+          metadata: {
             marketing: order.metadata.marketing,
             legal: order.metadata.legal,
             dob: order.metadata.dob,
-          }
+          },
         });
         charge = await stripe.charges.create(
           {
@@ -94,12 +92,12 @@ router.post('/orders/:id/pay', async (req, res, next) => {
             amount: order.amount,
             currency: order.currency,
             receipt_email: order.email,
-            capture:false,
-            metadata:{
+            capture: false,
+            metadata: {
               marketing: order.metadata.marketing,
               legal: order.metadata.legal,
-              dob: order.metadata.dob
-            }
+              dob: order.metadata.dob,
+            },
           },
           {
             // Set a unique idempotency key based on the order ID.
@@ -114,6 +112,8 @@ router.post('/orders/:id/pay', async (req, res, next) => {
       }
       if (charge && charge.status === 'succeeded') {
         status = 'captured';
+        //send txt msg
+        orders.sendMsg();
       } else if (charge) {
         status = charge.status;
       } else {

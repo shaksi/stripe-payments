@@ -35,6 +35,11 @@ module.exports = {
     // After creating a webhook, click to reveal details and find your signing secret.
     webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
   },
+  twilio: {
+    // Twilio Credentials
+    accountSid: process.env.ACCOUNT_SID,
+    authToken: process.env.AUTH_TOKEN,
+  },
 
   // Server port.
   port: process.env.PORT || 8000,

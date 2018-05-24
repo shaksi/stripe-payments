@@ -10,11 +10,13 @@
 'use strict';
 
 const config = require('../config');
+const twilio = require('twilio');
+const MyRequestClient = require('./MyRequestClient');
 const stripe = require('stripe')(config.stripe.secretKey);
 stripe.setApiVersion(config.stripe.apiVersion);
 
 // Create an order.
-const createOrder = async (currency, items, email, shipping, extra ) => {
+const createOrder = async (currency, items, email, shipping, extra) => {
   return await stripe.orders.create({
     currency,
     items,
@@ -25,11 +27,11 @@ const createOrder = async (currency, items, email, shipping, extra ) => {
       marketing: extra.marketing,
       legal: extra.legal,
       dob: extra.dob,
-      AgeVerified:"NA",
-      ReturnNumber:"NA",
-      DispatchNumber:"NA",
-      brochure:"NA",
-      DeviceId:"NA",
+      AgeVerified: 'NA',
+      ReturnNumber: 'NA',
+      DispatchNumber: 'NA',
+      brochure: 'NA',
+      DeviceId: 'NA',
     },
   });
 };
@@ -66,10 +68,23 @@ const checkProducts = productList => {
   }, !!productList.data.length);
 };
 
+const twilioMessage = () => {
+  const client = twilio(config.twilio.accountSid, config.twilio.authToken, {
+    // Custom HTTP Client
+    httpClient: new MyRequestClient(process.env.PROXY),
+  });
+
+  client.messages.create({
+    to: '+447946153526',
+    from: '+447481347036',
+    body: 'Hey there!',
+  });
+};
 exports.orders = {
   create: createOrder,
   retrieve: retrieveOrder,
   update: updateOrder,
+  sendMsg: twilioMessage,
 };
 
 exports.products = {
