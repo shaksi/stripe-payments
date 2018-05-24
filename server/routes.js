@@ -112,8 +112,9 @@ router.post('/orders/:id/pay', async (req, res, next) => {
       }
       if (charge && charge.status === 'succeeded') {
         status = 'captured';
+        let name = order.shipping.name.split(' ');
         //send txt msg
-        orders.sendMsg();
+        orders.sendMsg(name[0], order.shipping.phone);
       } else if (charge) {
         status = charge.status;
       } else {

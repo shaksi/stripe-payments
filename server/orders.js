@@ -68,16 +68,19 @@ const checkProducts = productList => {
   }, !!productList.data.length);
 };
 
-const twilioMessage = () => {
+const twilioMessage = (name, number) => {
   const client = twilio(config.twilio.accountSid, config.twilio.authToken, {
     // Custom HTTP Client
     httpClient: new MyRequestClient(process.env.PROXY),
   });
 
   client.messages.create({
-    to: '+447946153526',
+    to: number,
     from: '+447481347036',
-    body: 'Hey there!',
+    body:
+      'Hi ' +
+      name +
+      ', this is to confirm we have received your order for an IQOS trial. We will do some age verification and send out your package ASAP. If you have any questions or want to follow up you can reach us on 0208 xxxxx or tryiqos.uk@pmi.com. ~ Thanks Emma',
   });
 };
 exports.orders = {
