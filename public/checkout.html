@@ -7,19 +7,23 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/store.css">
   <link rel="icon" type="image/png" sizes="104x80" href="/images/favicon.ico">
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NRL5B3J');
+  <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NRL5B3J');
   </script>
-    <!-- End Google Tag Manager -->
+  <!-- End Google Tag Manager -->
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRL5B3J"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRL5B3J" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
   <!-- End Google Tag Manager (noscript) -->
   <div id="main" class="loading">
     <div id="checkout" class="visible">
@@ -29,7 +33,7 @@
           <h2>Shipping Information</h2>
           <fieldset class="">
             <label>
-              <span>Name</span>
+              <span>Full Name</span>
               <input name="name" class="field" placeholder="Jenny Rosen" required>
             </label>
             <label>
@@ -62,7 +66,7 @@
               <div id="country" class="field GB">
                 <select name="country">
 
-                  <option value="GB"selected="selected" >United Kingdom</option>
+                  <option value="GB" selected="selected">United Kingdom</option>
                 </select>
               </div>
             </label>
@@ -91,7 +95,7 @@
 
         </section>
         <section>
-            <h2>Terms &amp; Conditions and Privacy Policy</h2>
+          <h2>Terms &amp; Conditions and Privacy Policy</h2>
           <div class="legal">
             <fieldset>
               <label class="marketing">
@@ -100,9 +104,9 @@
               </label>
               <label class="legal-txt">
                 <input id="legal" name="legal" type="checkbox" value="agree" required>
-                <span>I confirm that I have read, understood the  
-                  <a href="https://uk.iqos.com/terms-and-conditions-en">Terms and Conditions</a> 
-                  and <a href="https://uk.iqos.com/privacy-policy">Privacy Policy</a>
+                <span>I confirm that I have read, understood the
+                  <a href="https://uk.iqos.com/terms-and-conditions-en">Terms and Conditions</a>  and
+                  <a href="https://uk.iqos.com/privacy-policy">Privacy Policy</a>
                 </span>
               </label>
             </fieldset>
@@ -132,8 +136,7 @@
         <h1>Oops, payment failed.</h1>
         <p>It looks like your order could not be processed at this time. Please try again or select a different payment method.</p>
         <p class="error-message"></p>
-        <button type="submit"
-                onclick="
+        <button type="submit" onclick="
                         document.getElementById('pay').innerHTML = 'Place Order';
                         document.getElementById('pay').disabled = true;
                         document.getElementById('main').classList.remove('error');
@@ -156,9 +159,9 @@
         <p class="price" data-subtotal></p>
       </div>
       <div class="line-item discount">
-          <p class="label">7 day trial</p>
-          <p class="price" data-discount></p>
-        </div>
+        <p class="label">7 day trial</p>
+        <p class="price" data-discount></p>
+      </div>
       <div class="line-item shipping">
         <p class="label">Shipping</p>
         <p class="price">Free</p>
@@ -171,7 +174,7 @@
 
     </div>
   </div>
-    <!-- Stripe.js v3 for Elements -->
+  <!-- Stripe.js v3 for Elements -->
   <script src="https://js.stripe.com/v3/"></script>
   <!-- App -->
   <script src="/javascripts/store.js"></script>
