@@ -85,27 +85,33 @@ router.post('/orders/:id/pay', async (req, res, next) => {
             dob: order.metadata.dob,
           },
         });
-        charge = await stripe.charges.create(
-          {
-            customer: customer.id,
-            source: source.id,
-            amount: order.amount,
-            currency: order.currency,
-            receipt_email: order.email,
-            capture: false,
-            metadata: {
-              marketing: order.metadata.marketing,
-              legal: order.metadata.legal,
-              dob: order.metadata.dob,
-            },
-          },
-          {
-            // Set a unique idempotency key based on the order ID.
-            // This is to avoid any race conditions with your webhook handler.
-            idempotency_key: order.id,
-          }
-        );
+        // charge = await stripe.charges.create(
+        //   {
+        //     customer: customer.id,
+        //     source: source.id,
+        //     amount: order.amount,
+        //     currency: order.currency,
+        //     receipt_email: order.email,
+        //     capture: false,
+        //     metadata: {
+        //       marketing: order.metadata.marketing,
+        //       legal: order.metadata.legal,
+        //       dob: order.metadata.dob,
+        //     },
+        //   },
+        //   {
+        //     // Set a unique idempotency key based on the order ID.
+        //     // This is to avoid any race conditions with your webhook handler.
+        //     idempotency_key: order.id,
+        //   }
+        // );
+        charge = await stripe.orders.pay(order.id, {
+          source: source.id,
+          customer: customer.id,
+        });
+        console.log(charge);
       } catch (err) {
+        console.log('ERROR:', err);
         // This is where you handle declines and errors.
         // For the demo we simply set to failed.
         status = 'failed';
