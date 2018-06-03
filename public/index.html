@@ -1,106 +1,136 @@
 <html>
 
 <head>
-    <title>Try IQOS</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/store.css">
-    <link rel="icon" type="image/png" sizes="104x80" href="/images/favicon.ico">
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-NRL5B3J');
-    </script>
-    <!-- End Google Tag Manager -->
+  <title>Try IQOS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/store.css">
+  <link rel="icon" type="image/png" sizes="104x80" href="/images/favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NRL5B3J');
+
+
+  </script>
+  <!-- End Google Tag Manager -->
 </head>
 
 <body style="background: white;">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRL5B3J" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div id="main" class="landing">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRL5B3J" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="main" class="landing">
 
 
-        <div id="checkout" class="visible padding-page">
-            <div id="#payment-form">
-                <section class="intro">
-                    <h2>Interested?</h2>
-                    Just complete the short form below and we will send the package via free next day delivery, if orderd before 4pm exc. weekends.
-                    <br>
-                    <br> At the end of your 7 day trial you can keep the IQOS device for an extra £51.50 (RRP £99) or just send
-                    it back for no extra charge.
-                    <br>
-                    <br>
-                </section>
-                </section>
-            </div>
-            <form id="payment-form-index" method="GET" action="/checkout.html">
+    <div id="checkout" class="visible padding-page">
+      <div id="#payment-form">
+        <section class="intro">
+          <h2>Interested?</h2>
+          Just complete the short form below and we will send the package via free next day delivery, if orderd before 4pm exc. weekends.
+          <br>
+          <br> At the end of your 7 day trial you can keep the IQOS device for an extra £51.50 (RRP £99) or just send it back
+          for no extra charge.
+          <br>
+          <br>
+        </section>
+        </section>
+      </div>
+      <form id="payment-form-index" method="GET" action="/checkout.html">
 
-                <section>
-                    <!-- <p class="instruction">Lets get started</p> -->
+        <section>
+          <!-- <p class="instruction">Lets get started</p> -->
 
-                    <h2>1) Are you over 18?</h2>
-                    <fieldset class="">
-                        <label class="dob">
-                            <span>Date Of Birth</span>
-                            <input name="dob" class="field" placeholder="08/09/1990" required>
-                        </label>
-                    </fieldset>
-                </section>
-                <p class="tip">You must be 18+ to participate and we will verify before delivery. </p>
+          <h2>1) Are you over 18?</h2>
+          <fieldset class="">
+            <label class="dob">
+              <span>Date Of Birth</span>
+              <input name="dob" class="field" placeholder="08/09/1990" required>
+            </label>
+          </fieldset>
+        </section>
+        <p class="tip">You must be 18+ to participate and we will verify before delivery. </p>
 
-                <section>
-                    <h2>2) Select your preferred device colour</h2>
+        <section>
+          <h2>2) Select your preferred device colour</h2>
 
-                    <div class="cc-selector">
-                        <fieldset class="device-selector">
-                            <input id="white" type="radio" name="colour" value="white" required/>
-                            <label class="device-colour white" for="white"></label>
-                        </fieldset>
-                        <fieldset class="device-selector">
-                            <input id="navy" type="radio" name="colour" value="navy" required/>
-                            <label class="device-colour navy" for="navy"></label>
-                        </fieldset>
+          <div class="cc-selector">
+            <fieldset class="device-selector">
+              <input id="white" type="radio" name="colour" value="white" required/>
+              <label class="device-colour white" for="white"></label>
+            </fieldset>
+            <fieldset class="device-selector">
+              <input id="navy" type="radio" name="colour" value="navy" required/>
+              <label class="device-colour navy" for="navy"></label>
+            </fieldset>
 
-                    </div>
+          </div>
 
 
-                </section>
+        </section>
 
-                <p class="tip">Trial devices come with 3 variants of HEETS. Each containing 20 tobacco sticks.</p>
-                <section>
-                    <!-- <p class="instruction">Lets get started</p> -->
+        <p class="tip">Trial devices come with 3 variants of HEETS. Each containing 20 tobacco sticks.</p>
+        <section>
+          <!-- <p class="instruction">Lets get started</p> -->
 
-                    <h2>3) Do you have a promo code?</h2>
-                    <fieldset class="">
-                        <label class="dob">
-                            <span>Promo Code</span>
-                            <input name="promo" class="field" placeholder="xxx-xxx-xxxx">
-                        </label>
-                    </fieldset>
-                </section>
-                <p class="tip">We will validate all codes and apply discounts &amp; rewards purchase. Ask a friend for their promo codes.</p>
+          <h2>3) Do you have a promo code?</h2>
+          <fieldset class="">
+            <label class="dob">
+              <span>Promo Code</span>
+              <input id="promo" class="promo" name="promo" class="field" placeholder="xxx-xxxx-x" maxlength="11">
+            </label>
+          </fieldset>
+        </section>
+        <p class="tip">We will validate all codes and apply discounts &amp; rewards. Ask a friend for their promo codes.</p>
 
-                <p>&nbsp;</p>
-                <button class="continue" type="submit">Continue</button>
-            </form>
-            <div id="card-errors" class="payment-errors"></div>
-        </div>
-
+        <p>&nbsp;</p>
+        <button class="continue" type="submit">Continue</button>
+      </form>
+      <div id="card-errors" class="payment-errors"></div>
     </div>
-    <!-- Stripe.js v3 for Elements -->
-    <script src="https://js.stripe.com/v3/"></script>
-    <!-- Library to render QR codes -->
-    <!-- App -->
-    <script src="/javascripts/store.js"></script>
-    <!-- <script src="/javascripts/payments.js"></script> -->
+
+  </div>
+  <!-- Stripe.js v3 for Elements -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <!-- Library to render QR codes -->
+  <!-- App -->
+  <script src="/javascripts/store.js"></script>
+  <script>
+    function format(input, format, hyphen) {
+      var output = "";
+      var idx = 0;
+
+      for (var i = 0; i < format.length && idx < input.length; i++) {
+        console.log(idx);
+        output += input.substr(idx, format[i]);
+        if (idx + format[i] < input.length) output += hyphen;
+        idx += format[i];
+        console.log(idx);
+      }
+      output += input.substr(idx);
+      return output;
+    }
+
+    $('.promo').keyup(function () {
+      var promoCode = $(this).val().replace(/-/g, ""); // remove hyphens
+      var promoCode = $(this).val().replace(/\D/g, ""); // remove alphabet
+
+      if (promoCode.length > 0) {
+        promoCode = format(promoCode, [3, 4, 2], "-");
+      }
+
+      $(this).val(promoCode);
+    });
+  </script>
 </body>
 
 </html>
