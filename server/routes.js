@@ -106,10 +106,18 @@ router.post('/orders/:id/pay', async (req, res, next) => {
         //     idempotency_key: order.id,
         //   }
         // );
-        charge = await stripe.orders.pay(order.id, {
-          source: source.id,
-          customer: customer.id,
-        });
+        charge = await stripe.orders.pay(
+          order.id,
+          {
+            source: source.id,
+            customer: customer.id,
+          },
+          {
+            // Set a unique idempotency key based on the order ID.
+            // This is to avoid any race conditions with your webhook handler.
+            idempotency_key: order.id,
+          }
+        );
         // console.log(charge);
       } catch (err) {
         // console.log('ERROR:', err);
@@ -117,13 +125,11 @@ router.post('/orders/:id/pay', async (req, res, next) => {
         // For the demo we simply set to failed.
         status = 'failed';
       }
-      if (charge && charge.status === 'succeeded') {
-        status = 'captured';
+      if (charge) {
+        status = charge.status;
         let name = order.shipping.name.split(' ');
         //send txt msg
         orders.sendMsg(name[0], order.shipping.phone);
-      } else if (charge) {
-        status = charge.status;
       } else {
         status = 'failed';
       }
