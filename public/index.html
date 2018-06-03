@@ -110,11 +110,9 @@
       var idx = 0;
 
       for (var i = 0; i < format.length && idx < input.length; i++) {
-        console.log(idx);
         output += input.substr(idx, format[i]);
         if (idx + format[i] < input.length) output += hyphen;
         idx += format[i];
-        console.log(idx);
       }
       output += input.substr(idx);
       return output;
