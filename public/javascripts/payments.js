@@ -17,11 +17,11 @@
     // this prevents any overhead from creating the object each time
     let element = document.createElement('div');
 
-    function decodeHTMLEntities (str) {
-      if(str && typeof str === 'string') {
+    function decodeHTMLEntities(str) {
+      if (str && typeof str === 'string') {
         // strip script/html tags
-        str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
-        str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+        str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gim, '');
+        str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gim, '');
         element.innerHTML = str;
         str = element.textContent;
         element.textContent = '';
@@ -32,31 +32,36 @@
 
     return decodeHTMLEntities;
   })();
-  const getQueryVariable = (variable) => {
+  const getQueryVariable = variable => {
     var query = window.location.search.substring(1);
-    var vars = query.split("&");
-    for (var i=0;i<vars.length;i++) {
-      var pair = vars[i].split("=");
-      if(pair[0] == variable){return pair[1];}
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      if (pair[0] == variable) {
+        return pair[1];
+      }
     }
-    return(false);
-  }
-  const dob = getQueryVariable("dob");
-  const colour = getQueryVariable("colour");
+    return false;
+  };
+  const dob = getQueryVariable('dob');
+  const colour = getQueryVariable('colour');
+  const promo = getQueryVariable('promo');
 
-  if (dob=="" || colour=="" ) {
-    window.location.replace("/");
+  if (dob == '' || colour == '') {
+    window.location.replace('/');
   }
   //set the dob value from url
-  document.getElementById("dob").value = dob.replace(new RegExp('%2F', 'g'), "/");
+  document.getElementById('dob').value = dob.replace(
+    new RegExp('%2F', 'g'),
+    '/'
+  );
 
   // Retrieve the configuration for the store.
   const config = await store.getConfig();
- await store.displayOrderSummary(colour);
+  await store.displayOrderSummary(colour);
   // Create references to the main form and its submit button.
   const form = document.getElementById('payment-form');
   const submitButton = form.querySelector('button[type=submit]');
-
 
   /**
    * Setup Stripe Elements.
@@ -126,8 +131,6 @@
   // Make sure all data is loaded from the store to compute the order amount.
   await store.loadProducts();
 
-
-
   /**
    * Handle the form submission.
    *
@@ -182,9 +185,10 @@
     };
 
     const extra = {
-      marketing:form.querySelector('input[name=marketing]').checked,
-      legal:form.querySelector('input[name=legal]').checked,
-      dob:form.querySelector('input[name=dob]').value
+      marketing: form.querySelector('input[name=marketing]').checked,
+      legal: form.querySelector('input[name=legal]').checked,
+      dob: form.querySelector('input[name=dob]').value,
+      promo: promo,
     };
     // Disable the Pay button to prevent multiple click events.
     submitButton.disabled = true;
@@ -303,7 +307,6 @@
 
       case 'paid':
       case 'captured':
-
         //hide the checkout form
         checkoutElement.classList.remove('visible');
         // Success! Payment is confirmed. Update the interface to display the confirmation screen.

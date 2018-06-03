@@ -83,6 +83,7 @@ router.post('/orders/:id/pay', async (req, res, next) => {
             marketing: order.metadata.marketing,
             legal: order.metadata.legal,
             dob: order.metadata.dob,
+            promo: order.metadata.promo || 'NA',
           },
         });
         // charge = await stripe.charges.create(
@@ -109,9 +110,9 @@ router.post('/orders/:id/pay', async (req, res, next) => {
           source: source.id,
           customer: customer.id,
         });
-        console.log(charge);
+        // console.log(charge);
       } catch (err) {
-        console.log('ERROR:', err);
+        // console.log('ERROR:', err);
         // This is where you handle declines and errors.
         // For the demo we simply set to failed.
         status = 'failed';

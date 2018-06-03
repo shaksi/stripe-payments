@@ -27,6 +27,7 @@ const createOrder = async (currency, items, email, shipping, extra) => {
       marketing: extra.marketing,
       legal: extra.legal,
       dob: extra.dob,
+      promo: extra.promo || 'NA',
       AgeVerified: 'NA',
       ReturnNumber: 'NA',
       DispatchNumber: 'NA',
