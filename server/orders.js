@@ -33,6 +33,10 @@ const createOrder = async (currency, items, email, shipping, extra) => {
       DispatchNumber: 'NA',
       brochure: 'NA',
       DeviceId: 'NA',
+      contact: 'NA',
+      'contact 2': 'NA',
+      'contact 3': 'NA',
+      group: 'NA',
     },
   });
 };
