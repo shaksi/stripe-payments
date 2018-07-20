@@ -156,7 +156,7 @@ class Store {
       }
 
       //if product iqos set pricing to 0
-      sku.price  =  product.id==='iqos'?"5150":sku.price;
+      sku.price  =  product.id==='iqos'?"2900":sku.price;
       let skuPrice = this.formatPrice(sku.price, sku.currency);
       let lineItemPrice = this.formatPrice(sku.price * quantity, sku.currency);
       let lineItem = document.createElement('div');
