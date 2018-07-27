@@ -85,7 +85,7 @@ const twilioMessage = (name, number) => {
     body:
       'Hi ' +
       name +
-      '\n Welcome to IQOS! \n'+
+      '\nWelcome to IQOS! \n'+
       'Thank you for placing your order with us, we just need to verify your age and we will be back in touch on Monday when we will process your order.\n'+
       'Have a fantastic weekend.\n'+
       'Kind Regards \n'+
