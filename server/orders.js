@@ -85,7 +85,11 @@ const twilioMessage = (name, number) => {
     body:
       'Hi ' +
       name +
-      ', this is to confirm we have received your order for an IQOS trial. We will do some age verification and let you know when your package is on its way. If you have any questions or want to get in touch call/WhatsApp 07860909992 or email me at tryIQOS.uk@pmi.com - Thanks, Emma',
+      '\n Welcome to IQOS! \n'+
+      'Thank you for placing your order with us, we just need to verify your age and we will be back in touch on Monday when we will process your order.\n'+
+      'Have a fantastic weekend.\n'+
+      'Kind Regards \n'+
+      'Team IQOS Team '
   });
 };
 exports.orders = {
