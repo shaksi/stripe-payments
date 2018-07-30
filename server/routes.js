@@ -129,7 +129,7 @@ router.post('/orders/:id/pay', async (req, res, next) => {
         status = charge.status;
         let name = order.shipping.name.split(' ');
         //send txt msg
-        orders.sendMsg(name[0], order.shipping.phone);
+        // orders.sendMsg(name[0], order.shipping.phone);
       } else {
         status = 'failed';
       }
