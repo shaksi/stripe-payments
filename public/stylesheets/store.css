@@ -857,7 +857,7 @@ button:active {
           appearance:none;
 }
 .navy{background-image:url("../images/2_4plus_mixed_heets_navy.png");}
-.white{background-image:url("../images/2_4plus_mixed_heets_navy.png");}
+.white{background-image:url("../images/2_4plus_mixed_heets_white.png");}
 
 .cc-selector input:active +.device-colour{opacity: 0.5;border: grey;
   border-style: solid;}
