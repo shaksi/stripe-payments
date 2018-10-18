@@ -856,8 +856,8 @@ button:active {
      -moz-appearance:none;
           appearance:none;
 }
-.navy{background-image:url(https://d2eb98cwc7neh6.cloudfront.net/images/heets_offer_2.4_navy.png);}
-.white{background-image:url(https://d2eb98cwc7neh6.cloudfront.net/images/heets_offer_2.4_white.png);}
+.navy{background-image:url("../images/2_4plus_mixed_heets_navy.png");}
+.white{background-image:url("../images/2_4plus_mixed_heets_navy.png");}
 
 .cc-selector input:active +.device-colour{opacity: 0.5;border: grey;
   border-style: solid;}
