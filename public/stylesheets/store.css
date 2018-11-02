@@ -902,7 +902,7 @@ button:active {
 /* Media Queries */
 @media only screen and (min-width : 1025px) {
   div#checkout.visible.padding-page {
-    padding: 50px 114px !important;
+    padding: 50px 160px !important;
     width: 945px !important;
     max-width: 945px;
     margin-bottom: 30px;
