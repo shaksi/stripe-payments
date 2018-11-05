@@ -1,124 +1,4 @@
-/**
- * store.css
- * Stripe Payments Demo. Created by Romain Huet (@romainhuet).
- */
 
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: none;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  /* font-family: "Planer"; */
-  font-size: 14px;
-  line-height: 1.4em;
-  /* color: #525f7f; */
-  color: #7d7d7d;
-}
-
-body {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background: #f8fbfd;
-}
-
-/* Overall Container */
-
-#main {
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  transition: width 0.3s ease-in-out;
-}
-
-#main.checkout:not(.success):not(.error) {
-  width: calc(100% - 450px);
-}
-
-/* Header */
-
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  width: 100%;
-  height: 80px;
-  background: #fff url(/images/header_logo.png) left center no-repeat;
-  background-position-x: 30px;
-  border-bottom: 1px solid #f3f3ff;
-}
-
-header a.shop,
-header a.github {
-  margin: 30px;
-  font-size: 13px;
-  font-weight: 500;
-  color: #666ee8;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-header a.menu {
-  margin-top: 27px;
-  margin-right: 5;
-  margin-left: 5;
-  padding-right: 5px;
-  padding-left: 5px;
-  font-size: 13px;
-  font-weight: bold;
-  color: #0071dc;
-  /* letter-spacing: 0.3px; */
-  /* text-transform: uppercase; */
-  text-decoration: none;
-}
-}
-
-header a.github {
-  padding-left: 20px;
-  background: url(/images/github.svg) left center no-repeat;
-}
-
-header a:hover {
-  text-decoration: underline;
-}
-
-/* Checkout */
-
-#checkout {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 30px 0;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear 0.5s;
-}
-
- #checkout.visible {
-  visibility: visible;
-  opacity: 1;
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  text-align: left;
-}
-
-h1, h2, h3 {
-  color: #0071dc;
-}
-
-h1 {
-  margin: 0 0 20px 0;
-  font-size: 20px;
-  font-weight: 500;
-}
 
 h2 {
   margin: 15px 0;
@@ -150,12 +30,13 @@ h2 {
   width: 30px;
   height: 30px;
   line-height : 30px;
-  border: 1px solid #ddd;
+  border: 1px solid #252525;
   border-radius: 100%;
   display: block;
   text-align: center;
   margin: 0 auto 10px auto;
-  background-color: #fff;
+  background-color: #252525;
+  color: white;
 }
 .progressbar li:after {
   content: "";
@@ -171,13 +52,13 @@ h2 {
   content: none;
 }
 .progressbar li.active {
-  color: #0071dc;
+  color: #252525;
 }
 .progressbar li.active:before {
-  border-color: #0071dc;
+  border-color: #252525;
 }
 .progressbar li.active + li:after {
-  background-color: #0071dc;
+  background-color: #252525;
 }
 
 /* Payment Request */
@@ -199,7 +80,6 @@ h2 {
   margin: 0 -30px;
   padding: 20px 30px 30px;
   border-radius: 4px;
-  border: 1px solid #e8e8fb;
 }
 
 /* Form */
@@ -266,7 +146,6 @@ p.instruction {
   margin-top: -32px;
   padding: 0 5px;
   text-align: center;
-  background: #f8fbfd;
 }
 
 p.tip {
@@ -329,7 +208,7 @@ select {
 }
 
 select:focus {
-  color: #666ee8;
+  color: #404040;
 }
 
 ::-webkit-input-placeholder {
@@ -345,7 +224,6 @@ select:focus {
 
 input:-webkit-autofill,
 select:-webkit-autofill {
-  -webkit-text-fill-color: #666ee8;
   transition: background-color 100000000s;
   -webkit-animation: 1ms void-animation-out 1s;
 }
@@ -360,9 +238,8 @@ select:-webkit-autofill {
 
 button {
   display: block;
-  background: #0071dc;
+  background: #252525;
   color: #fff;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
   border: 0;
   font-weight: 700;
@@ -374,7 +251,7 @@ button {
 }
 
 button:focus {
-  background: #555abf;
+  background: #404040;
 }
 
 button:hover {
@@ -384,7 +261,7 @@ button:hover {
 }
 
 button:active {
-  background: #43458b;
+  background: #404040;
 }
 
 #country {
@@ -702,7 +579,6 @@ button:active {
 }
 
 #summary .line-item .price {
-  color: #8ba4fe;
   font-weight: bold;
 }
 
@@ -728,7 +604,7 @@ button:active {
 
 #summary .line-item.total .label,
 #summary .line-item.total .price {
-  color: #424770;
+  color: #404040;
   font-size: 24px;
   font-weight: 400;
   line-height: inherit;
@@ -861,8 +737,8 @@ button:active {
      -moz-appearance:none;
           appearance:none;
 }
-.navy{background-image:url(https://images.typeform.com/images/ntBscYFxZFkv/choice/supersizefit#.jpeg);}
-.white{background-image:url(https://images.typeform.com/images/6x43UNSRjfvs/choice/supersizefit#.jpeg);}
+.navy{background-image:url('https://d2eb98cwc7neh6.cloudfront.net/images/heets_offer_2.4_navy.png');}
+.white{background-image:url('https://d2eb98cwc7neh6.cloudfront.net/images/heets_offer_2.4_white.png');}
 
 .cc-selector input:active +.device-colour{opacity: 0.5;border: grey;
   border-style: solid;}
@@ -907,9 +783,7 @@ button:active {
 /* Media Queries */
 @media only screen and (min-width : 1025px) {
   div#checkout.visible.padding-page {
-    box-sizing: border-box;
-    padding: 50px 114px !important;
-    box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.08);
+    padding: 50px 160px !important;
     width: 945px !important;
     max-width: 945px;
     margin-bottom: 30px;
@@ -1126,15 +1000,4 @@ button:active {
     width: 94px;
   }
 
-}
-
-@media print, screen, (-webkit-min-device-pixel-ratio: 2.25), not all, not all, not all, not all, not all, (min-resolution: 220dpi), (min-resolution: 2.25dppx){
-  .burger-button div {
-      background-image: url(https://d2fp8t8o04ru2d.cloudfront.net/design/themes/cuba/media/images/header_btn_menu@x3.png);
-  }
-}
-@media print, screen, (-webkit-min-device-pixel-ratio: 1.25), not all, not all, not all, not all, not all, (min-resolution: 120dpi), (min-resolution: 1.25dppx){
-  .burger-button div {
-      background-image: url(https://d2fp8t8o04ru2d.cloudfront.net/design/themes/cuba/media/images/header_btn_menu@x2.png);
-  }
 }
