@@ -1,4 +1,97 @@
 
+/* Overall Container */
+
+#main {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  transition: width 0.3s ease-in-out;
+}
+
+#main.checkout:not(.success):not(.error) {
+  width: calc(100% - 450px);
+}
+
+/* Header */
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 80px;
+  background: #fff url(/images/header_logo.png) left center no-repeat;
+  background-position-x: 30px;
+  border-bottom: 1px solid #f3f3ff;
+}
+
+header a.shop,
+header a.github {
+  margin: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666ee8;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+header a.menu {
+  margin-top: 27px;
+  margin-right: 5;
+  margin-left: 5;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #0071dc;
+  /* letter-spacing: 0.3px; */
+  /* text-transform: uppercase; */
+  text-decoration: none;
+}
+}
+
+header a.github {
+  padding-left: 20px;
+  background: url(/images/github.svg) left center no-repeat;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+/* Checkout */
+
+#checkout {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 30px 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear 0.5s;
+}
+
+ #checkout.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: left;
+}
+
+h1, h2, h3 {
+  color: #252525;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 500;
+}
 
 h2 {
   margin: 15px 0;
@@ -737,8 +830,8 @@ button:active {
      -moz-appearance:none;
           appearance:none;
 }
-.navy{background-image:url('https://d2eb98cwc7neh6.cloudfront.net/images/heets_offer_2.4_navy.png');}
-.white{background-image:url('https://d2eb98cwc7neh6.cloudfront.net/images/heets_offer_2.4_white.png');}
+.navy{background-image:url(https://d2eb98cwc7neh6.cloudfront.net/images/heets_offer_2.4_navy.png);}
+.white{background-image:url(https://d2eb98cwc7neh6.cloudfront.net/images/heets_offer_2.4_white.png);}
 
 .cc-selector input:active +.device-colour{opacity: 0.5;border: grey;
   border-style: solid;}
@@ -1000,4 +1093,15 @@ button:active {
     width: 94px;
   }
 
+}
+
+@media print, screen, (-webkit-min-device-pixel-ratio: 2.25), not all, not all, not all, not all, not all, (min-resolution: 220dpi), (min-resolution: 2.25dppx){
+  .burger-button div {
+      background-image: url(https://d2fp8t8o04ru2d.cloudfront.net/design/themes/cuba/media/images/header_btn_menu@x3.png);
+  }
+}
+@media print, screen, (-webkit-min-device-pixel-ratio: 1.25), not all, not all, not all, not all, not all, (min-resolution: 120dpi), (min-resolution: 1.25dppx){
+  .burger-button div {
+      background-image: url(https://d2fp8t8o04ru2d.cloudfront.net/design/themes/cuba/media/images/header_btn_menu@x2.png);
+  }
 }
